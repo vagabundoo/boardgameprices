@@ -40,3 +40,12 @@ def getAvgPrice(gameID, client_id="qaLdCno66F"):
         return stat.mean(pfloats)
     except:
         return None # If none of the prices by the sellers are valid, the function returns None instead
+
+def getGamePrices(games):
+    # Takes a list of game names 
+    # Returns a list of lists with gamename, and average price in USD (or None if game is not avaliable at retailers)
+    game_price = []
+    for game in games:
+        #if count >= 2: break
+        game_price.append([game, getAvgPrice(getGameID(game))])
+    return game_price
