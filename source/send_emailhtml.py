@@ -1,10 +1,21 @@
 ### Send email with plots embedded
-
 import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import getpass
 import relevantstats as d
+import matplotlib.pyplot as plt
+import base64
+from io import BytesIO
+
+fig1 = plt.figure(d.maxplayers_by_count)
+print(type(fig1))
+#fig2 = d.playtime_by_count.figure()
+
+tmpfile = BytesIO()
+fig1.savefig(tmpfile, format='png')
+encoded = base64.b64encode(tmpfile.getvalue()).decode('utf-8')
+
 
 port = 465  # For SSL
 smtp_server = "smtp.gmail.com"
@@ -24,7 +35,7 @@ html = f"""\
   <body>
     <p>Hi,<br>
        These are the lastest board game graphs<br>
-              
+       <img src=\'data:image/png;base64,{fig1}\'>       
     </p>
   </body>
 </html>
