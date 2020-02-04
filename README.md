@@ -7,6 +7,7 @@ This project was an exercise in getting data from two different sources, a CSV a
 1. Import and some cleaning of the dataset (see **source/1-treatdata2019**)
 2. Fetching additional data for the dataset from an API (see **source/2-fetch-data-with-api**)
 3. Combining the data from both datasets (see **source/3-combineDFs-and-get-statistics**)
+4. Storing these operations in a **functions.py** file to call from other files.
 
 => Using this dataset to create a python file with a series of functions that can be used to get information and listings on boardgames, and create a PDF with the top board games **main.py**
 
