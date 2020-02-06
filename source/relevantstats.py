@@ -2,12 +2,12 @@ import pandas as pd
 import requests
 import os
 import statistics as stat
-import functions as s
+import source.functions as s
 print(os.getcwd())
-df = pd.read_csv("../input/topBGs2019")
+df = pd.read_csv("./input/topBGs2019")
 #df.head()
 
-dfp = pd.read_csv("../output/top100price.csv", names=['names','avgPrice'])
+dfp = pd.read_csv("./output/top100price.csv", names=['names','avgPrice'])
 #dfp.head()
 
 dfc = df.merge(right = dfp, on = 'names', how = 'left')
